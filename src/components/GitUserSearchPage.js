@@ -93,10 +93,12 @@ export default class GitUserSearchPage extends React.Component {
                                     </button>
                                 </div>
 
-                                <div className="col-xs-12 col-md-5 panel panel-success panel-height-scroll">
+                                <div className="col-xs-12 col-md-5">
                                     { this.state.repos.length > 0 &&
+                                    <div className="panel panel-success panel-height-scroll">
                                         <GitRepos repos={this.state.repos}></GitRepos>
-                                    }
+                                    </div>
+                                    }                                    
                                 </div>
                             </div>
                         </div>

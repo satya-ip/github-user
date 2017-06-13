@@ -3,15 +3,16 @@ import React from 'react';
 const GitRepos = ({repos}) => {
     return (
        <div className="card text-left">
-            {repos.map(repo =>
-                    <p key={repo.id}>{repo.full_name} </p>
+            <div className="list-group">
+                <a href="#" className="list-group-item active">
+                    Total repositories: 20
+                </a>
+                {repos.map(repo =>
+                    <a href="#" key={repo.id} className="list-group-item">{repo.full_name}</a>
                 )}
+            </div>
        </div>
     );
 };
-
-// GitRepos.propTypes = {
-//     repos: React.PropTypes.array.isRequired,
-// };
 
 export default GitRepos;
