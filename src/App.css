@@ -87,6 +87,11 @@
 }
 
 .text-align-content {
-    vertical-align: middle;
-
+    margin-top: 15px;
 }
+
+.panel-height-scroll {
+    overflow-y: scroll; 
+    height: 300px
+}
+ 

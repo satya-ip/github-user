@@ -2,7 +2,7 @@ import React from 'react';
 
 const GitRepos = ({repos}) => {
     return (
-       <div className="card">
+       <div className="card text-left">
             {repos.map(repo =>
                     <p key={repo.id}>{repo.full_name} </p>
                 )}

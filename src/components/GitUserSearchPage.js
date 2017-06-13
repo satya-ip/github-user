@@ -87,13 +87,13 @@ export default class GitUserSearchPage extends React.Component {
                                     <UserProfile userProfile={this.state.profile}></UserProfile>
                                 </div>
 
-                                <div className="col-xs-12 col-md-2 text-align-content">
-                                    <button type="button" className="btn btn-info" onClick={this.loadUserRepos}>
+                                <div className="col-xs-12 col-md-2">
+                                    <button type="button" className="btn btn-info text-align-content" onClick={this.loadUserRepos}>
                                         Show Repos &nbsp;&nbsp;<span className="glyphicon glyphicon-triangle-right"></span>
                                     </button>
                                 </div>
 
-                                <div className="col-xs-12 col-md-5 panel panel-success">
+                                <div className="col-xs-12 col-md-5 panel panel-success panel-height-scroll">
                                     { this.state.repos.length > 0 &&
                                         <GitRepos repos={this.state.repos}></GitRepos>
                                     }
