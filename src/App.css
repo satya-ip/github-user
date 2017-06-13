@@ -1,0 +1,87 @@
+.App {
+    text-align: center;
+    max-width: 1400px;
+    min-height: 550px;
+    margin: auto;
+    background: #ffffff;
+    -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+    /*-webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);*/
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.search-cntr {
+    max-width: 600px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.custom-search-input {
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.custom-search-input .search-query {
+    padding-right: 30px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #777;
+    z-index: 6;
+}
+
+.search-query:focus+span button {
+    z-index: 6;
+}
+
+.custom-search-input .input-group-btn:last-child>.btn, .custom-search-input .input-group-btn:last-child>.btn-group {
+    z-index: 6;
+}
