@@ -25,7 +25,7 @@ export default class GitUserSearchPage extends React.Component {
         event.preventDefault();
 
         axios({url: `https://api.github.com/users/${this.state.userid}`, method: 'get'}).then((res) => {
-            let state = Object.assign({}, this.state, {profile: res.data});
+            let state = Object.assign({}, this.state, {profile: res.data, errors: false});
 
             this.setState(state);
             console.log('Data from live Git server: ', res.data)

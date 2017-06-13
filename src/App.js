@@ -8,8 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-
-          <h2>Git Hub User Lookup </h2>
+          <h2>GitHub User Lookup</h2>
         </div>
 
         <GitUserSearchPage></GitUserSearchPage>

@@ -9,7 +9,7 @@ const UserProfile = ({userProfile}) => {
                     <p><strong>Login:</strong> {userProfile.login}</p>
                     <p><strong>URL:</strong> {userProfile.url}</p>
                     <p><strong>eMail:</strong> {userProfile.email ? userProfile.email : 'n/a'}</p>
-                    <p><strong>Repositories:</strong> {userProfile.public_repos}</p>
+                    <p><strong>Total Repositories:</strong> {userProfile.public_repos}</p>
                     <p><strong>Location:</strong> {userProfile.location}</p>
                     <p><strong>Followers:</strong> {userProfile.followers}</p>
                     <p><strong>Following:</strong> {userProfile.following}</p>

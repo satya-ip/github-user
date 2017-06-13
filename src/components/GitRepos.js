@@ -5,7 +5,7 @@ const GitRepos = ({repos}) => {
        <div className="card text-left">
             <div className="list-group">
                 <a href="#" className="list-group-item active">
-                    Total repositories: {repos.length}
+                    Public Repositories: {repos.length}
                 </a>
                 {repos.map(repo =>
                     <a href="#" key={repo.id} className="list-group-item">{repo.full_name}</a>
