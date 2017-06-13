@@ -80,24 +80,28 @@ export default class GitUserSearchPage extends React.Component {
                 <div className="row">
 
                     {Object.keys(this.state.profile).length > 0 &&
+                        
+                        <div className="container-fluid">
+                            <div className="row panel panel-default">
+                                <div className="col-xs-12 col-md-5 panel panel-success">
+                                    <UserProfile userProfile={this.state.profile}></UserProfile>
+                                </div>
 
-                        <div className="col-xs-12 col-md-6">
-                        <UserProfile userProfile={this.state.profile}></UserProfile>
-                        <div className="col-xs-12 col-md-6">
-                            <a href="#" onClick={this.loadUserRepos}>
-                                Plus
-                            </a>
+                                <div className="col-xs-12 col-md-2 text-align-content">
+                                    <button type="button" className="btn btn-info" onClick={this.loadUserRepos}>
+                                        Show Repos &nbsp;&nbsp;<span className="glyphicon glyphicon-triangle-right"></span>
+                                    </button>
+                                </div>
+
+                                <div className="col-xs-12 col-md-5 panel panel-success">
+                                    { this.state.repos.length > 0 &&
+                                        <GitRepos repos={this.state.repos}></GitRepos>
+                                    }
+                                </div>
+                            </div>
                         </div>
 
-                    </div>}
-
-                    <div className="col-xs-12 col-md-6">
-
-                        { this.state.repos.length > 0 &&
-                            <GitRepos repos={this.state.repos}></GitRepos>
-                        }
-
-                    </div>
+                    }
 
                 </div>
             </div>

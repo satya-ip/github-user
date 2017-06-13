@@ -3,15 +3,16 @@ import React from 'react';
 const UserProfile = ({userProfile}) => {
     return (
        <div className="card">
-                <h3 className="card-header">{userProfile.name}</h3>
-                <div className="card-block">
-                    <p>Login: {userProfile.login}</p>
-                    <p>URL: {userProfile.url}</p>
-                    <p>eMail: {userProfile.email ? userProfile.email : 'n/a'}</p>
-                    <p>Repositories: {userProfile.public_repos}</p>
-                    <p>Location: {userProfile.location}</p>
-                    <p>Followers: {userProfile.followers}</p>
-                    <p>Following: {userProfile.following}</p>
+
+                <h3 className="panel panel-heading">{userProfile.name}</h3>
+                <div className="card-block text-left">
+                    <p><strong>Login:</strong> {userProfile.login}</p>
+                    <p><strong>URL:</strong> {userProfile.url}</p>
+                    <p><strong>eMail:</strong> {userProfile.email ? userProfile.email : 'n/a'}</p>
+                    <p><strong>Repositories:</strong> {userProfile.public_repos}</p>
+                    <p><strong>Location:</strong> {userProfile.location}</p>
+                    <p><strong>Followers:</strong> {userProfile.followers}</p>
+                    <p><strong>Following:</strong> {userProfile.following}</p>
                 </div>
 
             </div>

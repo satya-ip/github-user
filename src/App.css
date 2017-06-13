@@ -85,3 +85,8 @@
 .custom-search-input .input-group-btn:last-child>.btn, .custom-search-input .input-group-btn:last-child>.btn-group {
     z-index: 6;
 }
+
+.text-align-content {
+    vertical-align: middle;
+
+}
