@@ -29,7 +29,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error, onSearch})
                 </div>
 
                 <div>
-                    {error && <div className="text-danger">User not found</div>}
+                    {error.user && <div className="text-danger">User not found</div>}
 
                 </div>
 

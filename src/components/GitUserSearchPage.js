@@ -12,7 +12,7 @@ export default class GitUserSearchPage extends React.Component {
             userid: '',
             profile: {},
             repos: [],
-            errors: false
+            errors: {user: false, repos: false}
         };
 
         this.onSearchSubmit = this.onSearchSubmit.bind(this);
@@ -21,20 +21,18 @@ export default class GitUserSearchPage extends React.Component {
     }
 
     onSearchSubmit(event) {
-
         event.preventDefault();
 
         axios({url: `https://api.github.com/users/${this.state.userid}`, method: 'get'}).then((res) => {
-            let state = Object.assign({}, this.state, {profile: res.data, errors: false});
+            let state = Object.assign({}, this.state, {profile: res.data, errors: {user: false, repos: false}});
 
             this.setState(state);
             console.log('Data from live Git server: ', res.data)
             console.log('Entire state: ', this.state)
         }).catch((err) => {
-
-            let state = Object.assign({}, this.state, {errors: true});
+            let error = {user: true, repos: false};
+            let state = Object.assign({}, this.state, error);
             this.setState(state);
-
             console.log("Error is ", err);
         });
 
@@ -42,25 +40,25 @@ export default class GitUserSearchPage extends React.Component {
     }
 
     onSearchChange(event) {
-
-        if (!event.target.value) {
-            let state = Object.assign({}, this.state, {errors: false});
-            this.setState(state);
-
-        }
+        let state = Object.assign({}, this.state, {userid: event.target.value, profile: {}, repos: [], errors: {}});
+       
+        this.setState(state);
         console.log('search input: ', event.target.value);
-        this.setState({userid: event.target.value, profile: {}, repos: []});
     }
 
     loadUserRepos() {
         axios({url: `https://api.github.com/users/${this.state.userid}/repos`, method: 'get'}).then((res) => {
             //this.setState({...this.state, profile : res.data});
-            let state = Object.assign({}, this.state, {repos: res.data});
+            let error;
+            if(res.data.length == 0)
+                error = {user: false, repos: true};
+            else
+                error = {user: false, repos: false};
+
+            let state = Object.assign({}, this.state, {repos: res.data, errors: error});
 
             this.setState(state);
-
             console.log('Data from live Git server: ', res.data)
-            console.log('Entire state: ', this.state)
         }).catch((err) => {
             console.log("Error is ", err);
         });
@@ -94,11 +92,11 @@ export default class GitUserSearchPage extends React.Component {
                                 </div>
 
                                 <div className="col-xs-12 col-md-5">
-                                    { this.state.repos.length > 0 &&
+                                     {!(this.state.repos.length == 0 && !this.state.errors.repos) && 
                                     <div className="panel panel-success panel-height-scroll">
-                                        <GitRepos repos={this.state.repos}></GitRepos>
+                                        <GitRepos repos={this.state.repos} errors={this.state.errors}></GitRepos>
                                     </div>
-                                    }                                    
+                                     }                  
                                 </div>
                             </div>
                         </div>
@@ -111,9 +109,3 @@ export default class GitUserSearchPage extends React.Component {
     }
 
 }
-
-// GitUserSearchPage.propTypes = {
-//     userid: PropTypes.string,
-//     repos: PropTypes.array,
-//     profile: PropTypes.object
-// };
