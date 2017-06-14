@@ -18,7 +18,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error, onSearch})
                         className="search-query form-control"
                         placeholder={placeholder}
                         value={value}
-                        onChange={onChange}/>
+                        onChange={onChange} autoFocus='true'/>
                     <span className="input-group-btn">
                         <button className="btn " type="button" onClick={onSearch}>
                             <span className="glyphicon glyphicon-search"></span>
